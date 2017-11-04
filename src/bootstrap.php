@@ -21,6 +21,9 @@ if ($environment !== 'production') {
 }
 $whoops->register();
 
+/**
+ * injector http request and response
+ */
 $injector = include('Dependencies.php');
 
 $request = $injector->make('Http\HttpRequest');
@@ -34,6 +37,9 @@ $routeDefinitionCallback = function (\FastRoute\RouteCollector $r) {
 };
 $dispatcher = \FastRoute\simpleDispatcher($routeDefinitionCallback);
 
+/**
+ *  routes
+ */
 $routeInfo = $dispatcher->dispatch($request->getMethod(), $request->getPath());
 switch ($routeInfo[0]) {
     case \FastRoute\Dispatcher::NOT_FOUND:
