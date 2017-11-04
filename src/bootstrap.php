@@ -1,6 +1,7 @@
 <?php declare(strict_types = 1);
 
 namespace src;
+
 require __DIR__ . '/../vendor/autoload.php';
 
 error_reporting(E_ALL);
@@ -20,8 +21,10 @@ if ($environment !== 'production') {
 }
 $whoops->register();
 
-$request = new \Http\HttpRequest($_GET, $_POST, $_COOKIE, $_FILES, $_SERVER);
-$response = new \Http\HttpResponse;
+$injector = include('Dependencies.php');
+
+$request = $injector->make('Http\HttpRequest');
+$response = $injector->make('Http\HttpResponse');
 
 $routeDefinitionCallback = function (\FastRoute\RouteCollector $r) {
     $routes = include('routes.php');
@@ -31,18 +34,8 @@ $routeDefinitionCallback = function (\FastRoute\RouteCollector $r) {
 };
 $dispatcher = \FastRoute\simpleDispatcher($routeDefinitionCallback);
 
-
-
 $routeInfo = $dispatcher->dispatch($request->getMethod(), $request->getPath());
 switch ($routeInfo[0]) {
-    case \FastRoute\Dispatcher::FOUND:
-        $className = $routeInfo[1][0];
-        $method = $routeInfo[1][1];
-        $vars = $routeInfo[2];
-
-        $class = new $className;
-        $class->$method($vars);
-        break;
     case \FastRoute\Dispatcher::NOT_FOUND:
         $response->setContent('404 - Page not found');
         $response->setStatusCode(404);
@@ -52,17 +45,17 @@ switch ($routeInfo[0]) {
         $response->setStatusCode(405);
         break;
     case \FastRoute\Dispatcher::FOUND:
-        $handler = $routeInfo[1];
+        $className = $routeInfo[1][0];
+        $method = $routeInfo[1][1];
         $vars = $routeInfo[2];
-        call_user_func($handler, $vars);
+
+        $class = $injector->make($className);
+        $class->$method($vars);
         break;
 }
-//$response->setContent('404 - Page not found');
-//$response->setStatusCode(404);
 
 foreach ($response->getHeaders() as $header) {
     header($header, false);
 }
 
 echo $response->getContent();
-
