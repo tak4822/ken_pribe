@@ -1,0 +1,41 @@
+.book-container
+  width: 100%
+  height: 75vh
+  display: flex
+  justify-content: space-between
+  margin-bottom: 20vh
+
+  .book-image
+    width: 58%
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+      box-shadow: 0px 3px 12px 0px rgba(0,0,0,0.3)
+
+  .book-text
+    width: 39%
+    display: flex
+    flex-direction: column
+    justify-content: flex-end
+    .books-tag
+      font-size: 1.2rem
+      margin: 0
+      margin-bottom: 3px
+      color: $muted
+    .books-tag.comming-soon
+      color: $primary
+    .books-title
+      margin-top: 0
+      font-size: 2rem
+      line-height: 1.3em
+      margin-bottom: 40px
+    .books-desc
+      margin-top: 0
+    .btn
+      margin-top: 30px
+//character
+.chara-fixed.chara-left.books
+  bottom: 0
+  width: 280px
+  height: 280px

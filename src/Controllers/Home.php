@@ -24,7 +24,7 @@ class Home
     public function show()
     {
         $data = [
-            'name' => $this->request->getParameter('name', 'stranger')
+            'page' => 'home'
         ];
         $html = $this->renderer->render('Home', $data);
         $this->response->setContent($html);

@@ -1,28 +1,38 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Example</title>
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
-    <link rel="stylesheet" href="/css/test.css">
-</head>
-<body>
-<div id="layout">
-    <div id="menu">
-        <div class="pure-menu">
-            <ul class="pure-menu-list">
-                {% for item in menuItems %}
-                <li class="pure-menu-item"><a href="{{ item['href'] }}" class="pure-menu-link">{{ item['text'] }}</a></li>
-                {% endfor %}
-            </ul>
+    <head>
+        <meta charset="utf-8">
+        <title>Ken Priebe portfolio</title>
+        <!--normalize css-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.0/jquery.fancybox.min.css" />
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <div class="main-container">
+            {% include 'partials/sidenav.html' %}
+            <div class="content-container">
+                {% include 'partials/socialmedia.html' %}
+                {% block content %}
+                {% endblock %}
+            </div>
         </div>
-    </div>
-    <div id="main">
-        <div class="content">
-            {% block content %}
-            {% endblock %}
-        </div>
-    </div>
-</div>
-</body>
+        <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+        <script
+            src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"
+            integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.0/jquery.fancybox.min.js"></script>
+        <script src="js/video.js"></script>
+        <script src="js/main.js"></script>
+
+        {% if page == "home" %}
+        <script>
+            playHomevideo();
+        </script>
+        {% endif %}
+    </body>
 </html>

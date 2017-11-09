@@ -1,5 +1,39 @@
 {% extends "layout/layout.html" %}
 {% block content %}
-    <h1>Hello World</h1>
-    Hello {{ name }}
+    <div class="chara-fixed chara-left home">
+        <img src="img/Gnome.jpg" alt="Ken priebe character">
+    </div>
+    <div class="chara-fixed chara-right home">
+        <img src="img/birdcreature.svg" alt="Ken priebe character">
+    </div>
+    <div class="home-video-container">
+        <video id="homeVideo" class="home-video" width="100%" height="100%" poster="img/gnome.jpg" auto loop>
+            <source src="video/HomePageLoop.mp4" type="video/mp4">
+            Youtr browser dose not support the video tag
+        </video>
+        <div class="greeting-container">
+            <div class="svg-wrap">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="3310.135 5262.487 297.97 276.186">
+                    <defs>
+                        <style>
+                            .cls-1 {
+                                fill: #fff;
+                            }
+                        </style>
+                    </defs>
+                    <path id="Path_1526" data-name="Path 1526" class="cls-1" d="M975.11,5522.25c-120.3-135.2,45.012-369.691,256.2-236.689,2.617-1.5,0,236.689,0,236.689Z" transform="translate(2375.63 16.423)"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <div class="greeting-contents">
+        <p class="welcome">Welcome...</p>
+        <p class="welcome-words">but tread lightly, for here be a door to words, scribbles and the animated image.
+        </p>
+        <h1 class="welcome-intro">Ken Priebe is an author, illustrator and animator from under the Michigan troll bridge, now living in the Goon Docks near Vancouver, Canada. Enjoy your stay, and wipe your feet before you leave. </h1>
+        <div class="btn">
+            <a href="/about">Learn More</a>
+        </div>
+    </div>
+
 {% endblock %}

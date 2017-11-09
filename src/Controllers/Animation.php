@@ -24,7 +24,7 @@ class Animation
     public function show()
     {
         $data = [
-            'name' => $this->request->getParameter('name', 'stranger')
+            'page' => 'animation'
         ];
         $html = $this->renderer->render('Animation', $data);
         $this->response->setContent($html);

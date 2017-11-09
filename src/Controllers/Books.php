@@ -24,7 +24,7 @@ class Books
     public function show()
     {
         $data = [
-            'name' => $this->request->getParameter('name', 'stranger')
+            'page' => 'books'
         ];
         $html = $this->renderer->render('Books', $data);
         $this->response->setContent($html);

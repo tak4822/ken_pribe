@@ -1,0 +1,33 @@
+<div class="sidenav">
+    <div class="logo">
+        <a href="/">
+            <img src="/img/ken_logo.svg" alt="ken preibe portfolio logo">
+        </a>
+    </div>
+    <div class="nav">
+        <ul class="nav_ul">
+            <li class="nav_li nav-has-sub {% if page == 'books' %}active{% endif %}">
+                <a href="/books" class="nav-text">Books</a>
+                <ul class="subNav">
+                    <li class="subNav-li">Gnomes of the Cheese Forest and Other Poems</li>
+                    <li class="subNav-li">The Art of Stop Motion Animation</li>
+                    <li class="subNav-li">The ADVANCED Art of Stop Motion Animation</li>
+                </ul>
+            </li>
+            <li class="nav_li {% if page == 'drawings' %}active{% endif %}">
+                <a href="/drawings" class="nav-text">Drawings</a>
+            </li>
+            <li class="nav_li nav-has-sub {% if page == 'animation' %}active{% endif %}">
+                <a href="/animation" class="nav-text">Animation</a>
+                <ul class="subNav">
+                    <li class="subNav-li">Demo Reel</li>
+                    <li class="subNav-li">Shorts & Things</li>
+                    <li class="subNav-li">Kids Animation Workshops</li>
+                </ul>
+            </li>
+            <li class="nav_li {% if page == 'about' %}active{% endif %}">
+                <a href="/about" class="nav-text">About</a>
+            </li>
+        </ul>
+    </div>
+</div>

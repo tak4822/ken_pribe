@@ -1,0 +1,51 @@
+*
+  box-sizing: border-box
+
+body
+  margin: 0
+  padding: 0
+a
+  text-decoration: none
+
+//mixin
+@mixin clearFix()
+  &:before,
+  &:after
+    content: " "
+    display: table
+
+  &:after
+    display: block
+    clear: both
+    height: 1px
+    margin-top: -1px
+    visibility: hidden
+  &
+    *zoom: 1
+
+//oontainer
+.content-container
+  width: 60%
+  margin-left: 25vw
+  margin-top: 15vh
+  height: auto
+
+// character
+.chara-fixed
+  position: fixed
+  img
+    width: 100%
+    height: 100%
+    object-fit: contain
+.chara-left
+  bottom: 20px
+  left: 20px
+  width: 250px
+  height: 250px
+
+.chara-right
+  top: 20px
+  right: 0
+  width: 260px
+  height: 260px
+

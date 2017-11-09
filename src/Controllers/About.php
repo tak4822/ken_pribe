@@ -24,7 +24,7 @@ class About
     public function show()
     {
         $data = [
-            'name' => $this->request->getParameter('name', 'stranger')
+            'page' => 'about'
         ];
         $html = $this->renderer->render('About', $data);
         $this->response->setContent($html);

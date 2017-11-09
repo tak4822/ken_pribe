@@ -24,7 +24,7 @@ class Drawings
     public function show()
     {
         $data = [
-            'name' => $this->request->getParameter('name', 'stranger')
+            'page' => 'drawings'
         ];
         $html = $this->renderer->render('Drawings', $data);
         $this->response->setContent($html);
