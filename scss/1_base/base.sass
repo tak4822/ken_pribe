@@ -49,3 +49,25 @@ a
   width: 260px
   height: 260px
 
+//next prev button
+.scroll-btn-container
+  width: 60px
+  height: 250px
+  position: fixed
+  top: 67%
+  right: 80px
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  .scroll-btn-wrap
+    transition: all 0.3s ease
+    width: 100%
+    img
+      width: 100%
+  .scroll-btn-wrap.up
+    &:hover
+      transform: translateY(-10px)
+  .scroll-btn-wrap.down
+    &:hover
+      transform: translateY(10px)
+

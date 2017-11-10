@@ -8,10 +8,10 @@
         <ul class="nav_ul">
             <li class="nav_li nav-has-sub {% if page == 'books' %}active{% endif %}">
                 <a href="/books" class="nav-text">Books</a>
-                <ul class="subNav">
-                    <li class="subNav-li">Gnomes of the Cheese Forest and Other Poems</li>
-                    <li class="subNav-li">The Art of Stop Motion Animation</li>
-                    <li class="subNav-li">The ADVANCED Art of Stop Motion Animation</li>
+                <ul class="subNav" id="bookSubNav">
+                    <li data-menuanchor="Book_1" class="active subNav-li"><a class="sub-nav-text" href="#Book_1">Gnomes of the Cheese Forest and Other Poems</a></li>
+                    <li data-menuanchor="Book_2" class="subNav-li"><a class="sub-nav-text" href="#Book_2">The Art of Stop Motion Animation</a></li>
+                    <li data-menuanchor="Book_3" class="subNav-li"><a class="sub-nav-text" href="#Book_3">The ADVANCED Art of Stop Motion Animation</a></li>
                 </ul>
             </li>
             <li class="nav_li {% if page == 'drawings' %}active{% endif %}">
@@ -19,10 +19,10 @@
             </li>
             <li class="nav_li nav-has-sub {% if page == 'animation' %}active{% endif %}">
                 <a href="/animation" class="nav-text">Animation</a>
-                <ul class="subNav">
-                    <li class="subNav-li">Demo Reel</li>
-                    <li class="subNav-li">Shorts & Things</li>
-                    <li class="subNav-li">Kids Animation Workshops</li>
+                <ul class="subNav" id="AnimSubNav">
+                    <li data-menuanchor="demoReel" class="subNav-li"><a class="sub-nav-text" href="#demoReel">Demo Reel</a></li>
+                    <li data-menuanchor="things" class="subNav-li"><a class="sub-nav-text" href="#things">Shorts & Things</a></li>
+                    <li data-menuanchor="kids" class="subNav-li"><a class="sub-nav-text" href="#kids">Kids Animation Workshops</a></li>
                 </ul>
             </li>
             <li class="nav_li {% if page == 'about' %}active{% endif %}">
