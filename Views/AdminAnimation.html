@@ -1,0 +1,120 @@
+{% extends "layout/layout_admin.html" %}
+{% block content %}
+
+<div class="admin-head-wrap">
+    <p class="display-3">Aniamtion</p>
+    <span class="admin-message">{{ message|raw}}</span>
+</div>
+<!-- #########################
+       Demo Reel Table
+###########################-->
+
+<h4 class="admin-animation-head">Demo Reel</h4>
+<table class="table table-striped animation-tb">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Poster Image</th>
+        <th scope="col">Title</th>
+        <th scope="col">Video Url</th>
+        <th scope="col">Description</th>
+        <th scope="col">Edit</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for demo in demoreel %}
+    <tr>
+        <th scope="row">{{ demo['id'] }}</th>
+        <td class="anim-tb-poster"><img src="/img/{{ demo['poster'] }}"></td>
+        <td class="anim-tb-title">{{ demo['title'] }}</td>
+        <td class="anim-tb-url">{{ demo['video_url'] }}</td>
+        <td class="anim-tb-desc"><p>{{ demo['description'] | raw }}</p></td>
+        <td class="admin-tb-edit">
+            <a href="/anim/edit?type=demo&id={{ demo['id'] }}">
+                <i class="fa fa-2x fa-pencil-square edit-icon"></i>
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<!-- #########################
+       things Table
+###########################-->
+<div class="admin-head-wrap">
+    <h4 class="admin-animation-head">Shorts & Things</h4>
+    <a href="/anim/insert?type=things" class="btn btn-info btn-insert">Create a new Shorts and things</a>
+</div>
+<table class="table table-striped animation-tb">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Poster Image</th>
+        <th scope="col">Title</th>
+        <th scope="col">Video Url</th>
+        <th scope="col">Description</th>
+        <th scope="col">Edit</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for thing in things %}
+    <tr>
+        <th scope="row">{{ thing['id'] }}</th>
+        <td class="anim-tb-poster"><img src="/img/{{ thing['poster'] }}"></td>
+        <td class="anim-tb-title">{{ thing['title'] }}</td>
+        <td class="anim-tb-url">{{ thing['video_url'] }}</td>
+        <td class="anim-tb-desc"><p>{{ thing['description'] | raw }}</p></td>
+        <td class="admin-tb-edit">
+            <a href="/anim/delete?type=things&id={{ thing['id'] }}" data-title="{{ thing['title'] }}" class="admin-delete">
+                <i class="fa fa-trash fa-lg delete-icon"></i>
+            </a>
+            <a href="/anim/edit?type=things&id={{ thing['id'] }}">
+                <i class="fa fa-2x fa-pencil-square edit-icon"></i>
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<!-- #########################
+       kids Table
+###########################-->
+
+<div class="admin-head-wrap">
+    <h4 class="admin-animation-head">Kids Animation Workshops</h4>
+    <a href="/anim/insert?type=kids" class="btn btn-info btn-insert">Create a new Kids Animation</a>
+</div>
+<table class="table table-striped animation-tb">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Poster Image</th>
+        <th scope="col">Title</th>
+        <th scope="col">Video Url</th>
+        <th scope="col">Description</th>
+        <th scope="col">Edit</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for kid in kids %}
+    <tr>
+        <th scope="row">{{ kid['id'] }}</th>
+        <td class="anim-tb-poster"><img src="/img/{{ kid['poster'] }}"></td>
+        <td class="anim-tb-title">{{ kid['title'] }}</td>
+        <td class="anim-tb-url">{{ kid['video_url'] }}</td>
+        <td class="anim-tb-desc"><p>{{ kid['description'] | raw }}</p></td>
+        <td class="admin-tb-edit">
+            <a href="/anim/delete?type=kids&id={{ kid['id'] }}" data-title="{{ kid['title'] }}" class="admin-delete">
+                <i class="fa fa-trash fa-lg delete-icon"></i>
+            </a>
+            <a href="/anim/edit?type=kid&id={{ kid['id'] }}">
+                <i class="fa fa-2x fa-pencil-square edit-icon"></i>
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

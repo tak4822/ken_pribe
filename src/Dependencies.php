@@ -15,12 +15,10 @@ $injector->define('Http\HttpRequest', [
 $injector->alias('Http\Response', 'Http\HttpResponse');
 $injector->share('Http\HttpResponse');
 
-$injector->define('src\Page\FilePageReader', [
-    ':pageFolder' => __DIR__ . '/../pages',
-]);
 $injector->alias('src\Template\Renderer', 'src\Template\TwigRenderer');
 
 $injector->alias('src\Template\FrontendRenderer', 'src\Template\FrontendTwigRenderer');
+$injector->alias('src\Template\BackendRenderer', 'src\Template\BackendTwigRenderer');
 
 $injector->alias('src\Page\PageReader', 'src\Page\FilePageReader');
 $injector->share('src\Page\FilePageReader');
@@ -33,8 +31,11 @@ $injector->share('src\Page\FilePageReader');
 //    ],
 //]);
 $injector->delegate('Twig_Environment', function () use ($injector) {
-    $loader = new Twig_Loader_Filesystem(dirname(__DIR__) . '/templates');
-    $twig = new Twig_Environment($loader);
+    $loader = new Twig_Loader_Filesystem(dirname(__DIR__) . '/Views');
+    $twig = new Twig_Environment($loader,array(
+        'debug' => true
+    ));
+    $twig->addExtension(new Twig_Extension_Debug());
     return $twig;
 });
 

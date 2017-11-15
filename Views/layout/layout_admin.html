@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Ken Priebe portfolio</title>
+    <!--normalize css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+
+<div class="container-fluid admin-container">
+    <div class="row">
+        <div class="list-group col-sm-2 admin-nav">
+            <a href="/admin/user" class="list-group-item list-group-item-action {% if admin == 'user' %}active{% endif %}">Password</a>
+            <a href="/admin/books" class="list-group-item list-group-item-action {% if admin == 'books' %}active{% endif %}">Books</a>
+            <a href="/admin/drawings" class="list-group-item list-group-item-action {% if admin == 'drawings' %}active{% endif %}">Drawings</a>
+            <a href="/admin/animation" class="list-group-item list-group-item-action {% if admin == 'animation' %}active{% endif %}">Animation</a>
+            <a href="/admin/about" class="list-group-item list-group-item-action {% if admin == 'about' %}active{% endif %}">About</a>
+        </div>
+        <div class="admin-main-container col-sm-10">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"
+        integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+<script src="/js/admin.js"></script>
+
+{% if admin == "edit" %}
+<script>
+    editorFunc();
+</script>
+{% endif %}
+
+</body>
+</html>

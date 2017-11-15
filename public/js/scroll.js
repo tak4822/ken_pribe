@@ -1,27 +1,44 @@
-$(function(){
-    //fullpage.js for book
-    $(document).ready(function() {
-        $('#fullpageBook').fullpage({
-            anchors: ['Book_1', 'Book_2', 'Book_3'],
-            menu: '#bookSubNav'
+const mq = window.matchMedia("(min-width: 1025px)");
+
+if (matchMedia) {
+    mq.addListener(WidthChange);
+    WidthChange(mq);
+}
+
+//instance for fullpage js
+//fullpage.js for book
+function bookFullpage(){
+    $('#fullpageBook').fullpage({
+        anchors: ['Book_1', 'Book_2', 'Book_3'],
+        menu: '#bookSubNav'
+    });
+}
+
+//fullpage.js for aniamtion
+function animFullpage(){
+    $('#fullpageAnim').fullpage({
+        anchors: ['demoReel', 'things', 'kids'],
+        menu: '#AnimSubNav'
+    });
+}
+
+function WidthChange(mq) {
+    if (mq.matches) {
+        $(function(){
+            $("#scrollDown").click(function(){
+                $.fn.fullpage.moveSectionDown();
+            });
+
+            $("#scrollUp").click(function(){
+                $.fn.fullpage.moveSectionUp();
+            });
+
         });
-    });
-    //fullpage.js for aniamtion
-    $(document).ready(function() {
-        $('#fullpageAnim').fullpage({
-            anchors: ['demoReel', 'things', 'kids'],
-            menu: '#AnimSubNav'
-        });
-    });
+        bookFullpage();
+        animFullpage();
+    } else {
+        return false;
+    }
 
-    $("#scrollDown").click(function(){
-        $.fn.fullpage.moveSectionDown();
-    });
+}
 
-    $("#scrollUp").click(function(){
-        $.fn.fullpage.moveSectionUp();
-    });
-
-
-
-})

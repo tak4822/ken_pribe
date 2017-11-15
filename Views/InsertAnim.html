@@ -1,0 +1,85 @@
+{% extends "layout/layout_admin.html" %}
+{% block content %}
+<p class="display-3">Create a New
+{% if type == 'things' %}Shorts & Things{% else %}Kids Animation{% endif %}
+</p>
+<form action="/anim/insert" method="POST">
+    <!--animation type-->
+    <input type="hidden" value="{{ type }}" name="animType">
+
+    <!--Title-->
+    <div class="form-group">
+        <label for="animTitle">Title</label>
+        <input type="text" id="animTitle" class="form-control" name="title" placeholder="Enter Animation Title" required>
+    </div>
+
+    <!--Button Text-->
+    <div class="form-group">
+        <label for="animUrl">Video Url</label>
+        <input type="text" id="animUrl" class="form-control" name="animUrl" value="https://" placeholder="Enter the url of the video" required>
+    </div>
+
+    <!--Description-->
+    <label>Description</label>
+    <input type="hidden" class="hidden-desc" name="description">
+    <div class="editor-wrapper">
+        <ul class="tools">
+            <li>
+                <a href='#' data-role='bold'>
+                    <i class="fa fa-bold" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li>
+                <a href='#' data-role='italic'>
+                    <i class="fa fa-italic" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li>
+                <a href='#' data-role='createLink'>
+                    <i class="fa fa-link" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li>
+                <a href='#' data-role='unlink'>
+                    <i class="fa fa-unlink" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+        <div class="editableContent" contenteditable >
+            Write description here...
+        </div>
+    </div>
+
+    <div class="upload-section">
+        <button type="button" class="btn btn-lg btn-outline-dark upload-front-btn" data-toggle="modal" data-target="#file">Upload Book Image</button>
+        <div class="upload-alert"></div>
+    </div>
+
+    <div id="file" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">Upload Image</div>
+                    <button type="button" id="close" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar"></div>
+                        </div>
+
+                        <button class="btn btn-lg btn-primary upload-btn" type="button">Upload File</button>
+                        <input type="file" class="form-control" name="upload" id="upload-input" style="display:none">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+
+    <button type="submit" name="anim-insert-submit" class="btn btn-lg btn-primary submit-btn">Submit</button>
+</form>
+{% endblock %}

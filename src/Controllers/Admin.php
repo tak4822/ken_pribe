@@ -5,8 +5,8 @@ namespace src\Controllers;
 use src\Template\FrontendRenderer;
 use Http\Request;
 use Http\Response;
-include __DIR__ . '/../../src/helper/SQL.php';
-class About
+
+class Admin
 {
     private $request;
     private $response;
@@ -24,10 +24,9 @@ class About
     public function show()
     {
         $data = [
-            'page' => 'about',
-            'about' => DBSelectAll('about_tb')
+            'admin' => 'admin'
         ];
-        $html = $this->renderer->render('About', $data);
+        $html = $this->renderer->render('Admin', $data);
         $this->response->setContent($html);
 
     }

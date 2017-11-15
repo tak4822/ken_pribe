@@ -1,0 +1,109 @@
+{% extends "layout/layout_admin.html" %}
+{% block content %}
+<p class="display-3">Create a New Book</p>
+
+<form action="/book/insert" method="POST">
+    <!--Title-->
+    <div class="form-group">
+        <label for="bookTitle">Title</label>
+        <input type="text" id="bookTitle" class="form-control" name="title" placeholder="Enter Book Title" required>
+        <!--<small id="textHelp" class="form-text text-muted">We'll never share your text with anyone else.</small>-->
+    </div>
+
+    <!--Sub Title-->
+    <div class="form-group">
+        <label for="subtitle">Sub Title (Color & Text)</label>
+        <br>
+        <!--Sub Title color-->
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="subColor" value="red">
+                <div class="sub-color-box red"></div>
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="subColor"  value="grey" checked>
+                <div class="sub-color-box grey"></div>
+            </label>
+        </div>
+        <input type="text" id="subTitle" class="form-control" name="sub" placeholder="Enter Book Sub Title">
+    </div>
+
+    <!--Button Text-->
+    <div class="form-group">
+        <label for="bookBtnText">Button Text</label>
+        <input type="text" id="bookBtnText" class="form-control" name="btnText" placeholder="Enter the text will be the words inside the button" required>
+    </div>
+
+    <!--Button Url-->
+    <div class="form-group">
+        <label for="bookBtnUrl">Button Url</label>
+        <input type="text" id="bookBtnUrl" class="form-control" name="btnUrl" value="https://" placeholder="Enter the url will be the link of the button" required>
+    </div>
+
+    <!--Description-->
+    <label>Description</label>
+    <input type="hidden" class="hidden-desc" name="description">
+    <div class="editor-wrapper">
+        <ul class="tools">
+            <li>
+                <a href='#' data-role='bold'>
+                    <i class="fa fa-bold" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li>
+                <a href='#' data-role='italic'>
+                    <i class="fa fa-italic" aria-hidden="true"></i>
+                </a>
+            </li>
+
+            <li>
+                <a href='#' data-role='createLink'>
+                    <i class="fa fa-link" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li>
+                <a href='#' data-role='unlink'>
+                    <i class="fa fa-unlink" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+        <div class="editableContent" contenteditable >
+            Write description here...
+        </div>
+    </div>
+
+    <div class="upload-section">
+        <button type="button" class="btn btn-lg btn-outline-dark upload-front-btn" data-toggle="modal" data-target="#file">Upload Book Image</button>
+        <div class="upload-alert"></div>
+    </div>
+
+    <div id="file" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">Upload Image</div>
+                    <button type="button" id="close" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar"></div>
+                        </div>
+
+                        <button class="btn btn-lg btn-primary upload-btn" type="button">Upload File</button>
+                        <input type="file" class="form-control" name="upload" id="upload-input" style="display:none">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+
+    <button type="submit" name="book-insert-submit" class="btn btn-lg btn-primary submit-btn">Submit</button>
+</form>
+{% endblock %}

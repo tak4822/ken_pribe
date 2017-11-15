@@ -5,7 +5,7 @@ namespace src\Controllers;
 use src\Template\FrontendRenderer;
 use Http\Request;
 use Http\Response;
-
+include __DIR__ . '/../../src/helper/SQL.php';
 class Books
 {
     private $request;
@@ -24,7 +24,8 @@ class Books
     public function show()
     {
         $data = [
-            'page' => 'books'
+            'page' => 'books',
+            'books' => DBSelectAll('books_tb')
         ];
         $html = $this->renderer->render('Books', $data);
         $this->response->setContent($html);

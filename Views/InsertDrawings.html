@@ -1,0 +1,83 @@
+{% extends "layout/layout_admin.html" %}
+{% block content %}
+<p class="display-3">Create a New Drawing</p>
+
+<form action="/drawings/insert" method="POST">
+    <!--Title-->
+    <div class="form-group">
+        <label for="drawingsTitle">Title</label>
+        <input type="text" id="drawingsTitle" class="form-control" name="title" placeholder="Enter Drawings Title" required>
+    </div>
+
+    <!-- Date-->
+    <div class="form-group">
+        <label for="drawingsDate">Date</label>
+        <input type="text" id="drawingsDate" class="form-control" name="date" placeholder="Enter the Date" required>
+    </div>
+
+
+    <!--Description-->
+    <label>Description</label>
+    <input type="hidden" class="hidden-desc" name="description">
+    <div class="editor-wrapper">
+        <ul class="tools">
+            <li>
+                <a href='#' data-role='bold'>
+                    <i class="fa fa-bold" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li>
+                <a href='#' data-role='italic'>
+                    <i class="fa fa-italic" aria-hidden="true"></i>
+                </a>
+            </li>
+
+            <li>
+                <a href='#' data-role='createLink'>
+                    <i class="fa fa-link" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li>
+                <a href='#' data-role='unlink'>
+                    <i class="fa fa-unlink" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+        <div class="editableContent" contenteditable >
+            Write description here...
+        </div>
+    </div>
+
+    <div class="upload-section">
+        <button type="button" class="btn btn-lg btn-outline-dark upload-front-btn" data-toggle="modal" data-target="#file">Upload Book Image</button>
+        <div class="upload-alert"></div>
+    </div>
+
+    <div id="file" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">Upload Image</div>
+                    <button type="button" id="close" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar"></div>
+                        </div>
+
+                        <button class="btn btn-lg btn-primary upload-btn" type="button">Upload File</button>
+                        <input type="file" class="form-control" name="upload" id="upload-input" style="display:none">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+
+    <button type="submit" name="drawings-insert-submit" class="btn btn-lg btn-primary submit-btn">Submit</button>
+</form>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "layout/layout_admin.html" %}
+{% block content %}
+
+<div class="admin-head-wrap">
+    <p class="display-3">Drawings</p>
+    <a href="/drawings/insert" class="btn btn-info btn-insert">Create a new drawings</a>
+    <span class="admin-message">{{ message|raw}}</span>
+</div>
+<div class="row">
+    {% for chara in drawings %}
+    <div class="col-sm-3">
+        <div class="card">
+            <img class="card-img-top" src="/img/{{ chara['image'] }}" alt="Card image cap">
+            <div class="card-body">
+                <h4 class="card-date">{{ chara['date'] }}</h4>
+                <h4 class="card-title">{{ chara['title'] }}</h4>
+                <p class="card-text">{{ chara['description'] | raw}}</p>
+            </div>
+            <div class="card-body draw-edit">
+                <a href="/drawings/edit?id={{ chara['id'] }}" class="edit-icon-wrap btn">
+                    <p class="edit-text">Edit</p>
+                    <i class="fa fa-lg fa-pencil fa-inverse "></i>
+                </a>
+                <a href="/drawings/delete?id={{ chara['id'] }}" data-title="{{ chara['title'] }}" class="admin-delete">
+                    <i class="fa fa-trash fa-lg delete-icon"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -14,12 +14,9 @@
 @import '3_sections/animation';
 @import '3_sections/about';
 
-//@import '4_admin/upload';
-//@import '4_admin/common';
-//@import '4_admin/login';
-//@import '4_admin/typo';
-//@import '4_admin/clients';
-//@import '4_admin/home';
-//@import '4_admin/insert';
-//@import '4_admin/contents';
-//@import '4_admin/images';
+@import '4_admin/common';
+@import '4_admin/animation';
+@import '4_admin/books';
+@import '4_admin/drawings';
+@import '4_admin/about';
+

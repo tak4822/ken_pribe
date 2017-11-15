@@ -4,12 +4,15 @@
             <img src="/img/ken_logo.svg" alt="ken preibe portfolio logo">
         </a>
     </div>
+    <div class="for-mobile social-nav">
+        {% include 'partials/socialmedia.html' %}
+    </div>
     <div class="nav">
         <ul class="nav_ul">
             <li class="nav_li nav-has-sub {% if page == 'books' %}active{% endif %}">
                 <a href="/books" class="nav-text">Books</a>
                 <ul class="subNav" id="bookSubNav">
-                    <li data-menuanchor="Book_1" class="active subNav-li"><a class="sub-nav-text" href="#Book_1">Gnomes of the Cheese Forest and Other Poems</a></li>
+                    <li data-menuanchor="Book_1" class="subNav-li"><a class="sub-nav-text" href="#Book_1">Gnomes of the Cheese Forest and Other Poems</a></li>
                     <li data-menuanchor="Book_2" class="subNav-li"><a class="sub-nav-text" href="#Book_2">The Art of Stop Motion Animation</a></li>
                     <li data-menuanchor="Book_3" class="subNav-li"><a class="sub-nav-text" href="#Book_3">The ADVANCED Art of Stop Motion Animation</a></li>
                 </ul>

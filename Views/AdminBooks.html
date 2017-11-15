@@ -1,0 +1,45 @@
+{% extends "layout/layout_admin.html" %}
+{% block content %}
+<div class="admin-head-wrap">
+    <p class="display-3">Books</p>
+    <a href="/book/insert" class="btn btn-info btn-insert">Create a new book section</a>
+    <span class="admin-message">{{ message|raw}}</span>
+</div>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Image</th>
+        <th scope="col">Title</th>
+        <th scope="col">Subtitle</th>
+        <th scope="col">Description</th>
+        <th scope="col">Button Text</th>
+        <th scope="col">Button Url</th>
+        <th scope="col">Edit</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for book in books %}
+        <tr>
+            <th scope="row">{{ book['id'] }}</th>
+            <td class="books-tb-img"><img src="/img/{{ book['image'] }}"></td>
+            <td class="books-tb-title">{{ book['title'] }}</td>
+            <td class="books-tb-subtitle {{ book['sub_title-color'] }}">{{ book['sub_title'] }}</td>
+            <td class="books-tb-desc long-text"><p>{{ book['description'] | raw}}</p></td>
+            <td class="books-tb-url">{{ book['btn_text'] }}</td>
+            <td class="books-tb-url">{{ book['btn_url'] }}</td>
+            <td class="admin-tb-edit">
+                <a href="/book/delete?id={{ book['id'] }}" data-title="{{ book['title'] }}" class="admin-delete">
+                    <i class="fa fa-trash fa-lg delete-icon"></i>
+                </a>
+                <a href="/book/edit?id={{ book['id'] }}">
+                    <i class="fa fa-2x fa-pencil-square edit-icon"></i>
+                </a>
+            </td>
+        </tr>
+
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

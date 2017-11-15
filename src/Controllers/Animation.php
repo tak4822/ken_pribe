@@ -5,7 +5,7 @@ namespace src\Controllers;
 use src\Template\FrontendRenderer;
 use Http\Request;
 use Http\Response;
-
+include __DIR__ . '/../../src/helper/SQL.php';
 class Animation
 {
     private $request;
@@ -24,7 +24,10 @@ class Animation
     public function show()
     {
         $data = [
-            'page' => 'animation'
+            'page' => 'animation',
+            'demoreel' => DBSelectAll('demoreel_tb'),
+            'things' => DBSelectAll('things_tb'),
+            'kids' => DBSelectAll('kids_tb')
         ];
         $html = $this->renderer->render('Animation', $data);
         $this->response->setContent($html);

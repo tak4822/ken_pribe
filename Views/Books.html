@@ -1,0 +1,37 @@
+{% extends "layout/layout.html" %}
+{% block content %}
+<div class="scroll-btn-container">
+    <div class="scroll-btn-wrap up" id="scrollUp">
+        <img src="/img/up.svg" alt="ken priebe previous book">
+    </div>
+    <div class="scroll-btn-wrap down" id="scrollDown">
+        <img src="/img/down.svg" alt="ken priebe next book">
+    </div>
+</div>
+<div class="chara-fixed chara-left books">
+    <img src="img/BottomLeft_Books.jpg" alt="Ken priebe character">
+</div>
+<div class="chara-fixed chara-right books">
+    <img src="img/TopRight_Books.jpg" alt="Ken priebe character">
+</div>
+<div id="fullpageBook">
+    {% for book in books %}
+        <div class="section">
+            <div class="book-container">
+                <div class="book-image">
+                    <img src="/img/{{ book['image'] }}" alt="{{ book['title'] }} book image">
+                </div>
+                <div class="book-text">
+                    <p class="books-tag {{ book['sub_title_color'] }}">{{ book['sub_title'] }}</p>
+                    <h3 class="books-title">{{ book['title'] }}</h3>
+                    <p class="books-desc">{{ book['description'] | raw}}</p>
+                    <div class="btn-f">
+                        <a href="{{ book['btn_url'] }}">{{ book['btn_text'] }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

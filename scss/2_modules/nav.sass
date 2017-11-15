@@ -4,10 +4,65 @@
   position: fixed
   top: 6%
   left: 4%
+  @media screen and (max-width: 1500px)
+    width: 16%
+    left: 2%
+  @media screen and (max-width: $tablet)
+    position: static
+    width: 90%
+    margin-left: 5%
+    height: 300px
+  @media screen and (max-width: $mobile)
+    height: 280px
+
+  .nav
+    @media screen and (max-width: $tablet)
+      text-align: center
   .logo
     width: 100%
+    @media screen and (max-width: $tablet)
+      width: auto
+      height: 200px
+      text-align: center
+      img
+        height: 80%
+        margin-top: 40px
+    @media screen and (max-width: 340px)
+      height: 150px
+      img
+        height: 85%
+        margin-top: 20px
+
+  .social-nav
+    text-align: center
+    .social-ul
+      @media screen and (max-width: $tablet)
+        display: inline-flex
+        position: static
+        padding: 0
+        width: 350px
+        flex-direction: row
+        justify-content: space-around
+        margin-bottom: 40px
+      @media screen and (max-width: $mobile)
+        width: 280px
+        margin-bottom: 20px
+      @media screen and (max-width: 340px)
+        width: 220px
+
+
   .nav_ul
     padding-left: 30px
+    @media screen and (max-width: 1250px)
+      padding-left: 0
+    @media screen and (max-width: $tablet)
+      display: inline-flex
+      width: 600px
+      flex-direction: row
+      justify-content: space-around
+    @media screen and (max-width: 600px)
+      width: 100%
+
   .nav_li
     list-style-type: none
     margin-bottom: 10px
@@ -16,19 +71,39 @@
       padding-left: 20px
       border-left: 5px solid $primary
       margin-bottom: 20px
+      @media screen and (max-width: $tablet)
+        border-left: 0
+        padding-left: 0
+        margin-bottom: 0
   .nav-text
     text-decoration: none
     font-size: 2rem
+    @media screen and (max-width: 1250px)
+      font-size: 1.5rem
+    @media screen and (max-width: $tablet)
+      font-size: 2rem
+    @media screen and (max-width: 600px)
+      font-size: 1.3rem
+    @media screen and (max-width: 400px)
+      font-size: 1.1rem
+    @media screen and (max-width: 340px)
+      font-size: 1rem
+
   .subNav
     display: none
     list-style-type: none
     padding: 0
     padding-top: 10px
 
+
   .subNav-li
     font-size: 0.9rem
     padding-bottom: 15px
     line-height: 1.2rem
+    @media screen and (max-width: 1500px)
+      font-size: 0.7rem
+    @media screen and (max-width: 1250px)
+      padding-bottom: 10px
 .sub-nav-text
   color: $text
   transition: all 0.1s ease
@@ -42,13 +117,22 @@
     text-shadow: -3px 4px 2px rgba(150, 150, 150, 0.39)
     color: $head
     font-size: 1.2rem
+    @media screen and (max-width: 1500px)
+      font-size: 0.9rem
 
 .nav_li.active
   padding-left: 20px
   border-left: 5px solid $primary
   margin-bottom: 20px
+  @media screen and (max-width: $tablet)
+    border-left: 0
+    border-bottom: 3px solid $primary
+    margin-bottom: 5px
+    padding-left: 0
   .subNav
     display: block
+    @media screen and (max-width: $tablet)
+      display: none
 //social medial links
 .social-ul
   position: fixed
@@ -57,6 +141,8 @@
   left: 24vw
   list-style: none
   @include clearFix()
+  @media screen and (max-width: 1500px)
+    left: 21vw
   .social-li
     text-decoration: none
     float: left
@@ -69,6 +155,8 @@
       align-items: center
       width: 50px
       height: 23px
+      @media screen and (max-width: 400px)
+        height: 18px
     svg
       width: 100%
       height: 100%

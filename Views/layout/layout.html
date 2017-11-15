@@ -2,18 +2,21 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width" />
         <title>Ken Priebe portfolio</title>
         <!--normalize css-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.0/jquery.fancybox.min.css" />
-        <link rel="stylesheet" href="css/jquery.fullpage.css">
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="/css/jquery.fullpage.css">
+        <link rel="stylesheet" href="/css/main.css">
     </head>
     <body>
         <div class="main-container">
             {% include 'partials/sidenav.html' %}
             <div class="content-container">
-                {% include 'partials/socialmedia.html' %}
+                <div class="for-desk">
+                    {% include 'partials/socialmedia.html' %}
+                </div>
                 {% block content %}
                 {% endblock %}
             </div>
@@ -27,15 +30,39 @@
             integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="
             crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.0/jquery.fancybox.min.js"></script>
-        <script src="js/jquery.fullpage.js"></script>
-        <script src="js/video.js"></script>
-        <script src="js/main.js"></script>
-        <script src="js/scroll.js"></script>
+        <script src="/js/jquery.fullpage.js"></script>
+        <script src="/js/video.js"></script>
+        <script src="/js/main.js"></script>
+        <script src="/js/scroll.js"></script>
 
         {% if page == "home" %}
         <script>
             playHomevideo();
         </script>
         {% endif %}
+
+        {% if page == "books" %}
+        <script>
+            if(mq.matches){
+                bookFullpage();
+            }
+        </script>
+        {% endif %}
+
+        {% if page == "animation" %}
+        <script>
+            if(mq.matches) {
+                animFullpage();
+            }
+        </script>
+        {% endif %}
+
+        {% if page == "about" %}
+        <script>
+            news();
+        </script>
+        {% endif %}
+
+
     </body>
 </html>

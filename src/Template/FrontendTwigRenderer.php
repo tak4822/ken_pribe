@@ -8,7 +8,6 @@ namespace src\Template;
 class FrontendTwigRenderer implements FrontendRenderer
 {
     private $renderer;
-    private $menuReader;
 
     public function __construct(Renderer $renderer) //, MenuReader $menuReader
     {

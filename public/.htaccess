@@ -1,0 +1,6 @@
+RewriteEngine On
+
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule .* index.php?routeInfo=$0 [QSA]

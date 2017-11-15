@@ -1,60 +1,143 @@
+.anim-head
+  text-align: center
+  font-size: 2.5rem
+  font-family: "Franklin_demi"
+  margin-bottom: 40px
+
 .play-icon-wrap
   position: absolute
-  top: 50%
-  left: 50%
-  width: 80px
-  height: 80px
-  margin-left: -40px
-  margin-top: -40px
+  top: 40%
+  left: 43%
+  width: 14%
+  height: 20%
   img
     width: 100%
     height: 100%
     object-fit: contain
+.anim-poster
+  width: 100%
+  height: 100%
+  object-fit: cover
 .animation-container
   width: 100%
   height: 77vh
   margin-bottom: 23vh
   @include clearFix
+  @media screen and (max-width: 1500px)
+    padding-right: 50px
+  @media screen and (max-width: $tablet)
+    padding-right: 0
+    height: auto
+    margin-bottom: 150px
   .demoreel-box
     display: block
     height: 75%
     position: relative
+    @media screen and (max-width: 1400px)
+      height: 500px
+    @media screen and (max-width: $tablet-sm)
+      height: 350px
+    @media screen and (max-width: $mobile)
+      height: 250px
 
-    img
-      width: 100%
-      height: 100%
-      object-fit: cover
   .demoreel-text
     display: flex
     justify-content: space-between
     padding-top: 20px
+    @media screen and (max-width: $mobile)
+      padding-top: 40px
     .demoreel-text-inner-wrap
       width: 50%
+      @media screen and (max-width: 1300px)
+        width: 70%
+      @media screen and (max-width: $tablet-sm)
+        width: 100%
+
     .demoreel-title
       font-size: 2rem
       margin-bottom: 10px
-    .btn
+      @media screen and (max-width: $tablet)
+        font-size: 2.5rem
+      @media screen and (max-width: $mobile)
+        font-size: 2rem
+    .demoreel-desc
+      @media screen and (max-width: $tablet)
+        font-size: 1.2rem
+        line-height: 1.8rem
+        padding-top: 10px
+      @media screen and (max-width: $mobile)
+        font-size: 1rem
+    .btn-f
       height: 60px
+      @media screen and (max-width: 1500px)
+        a
+          padding-top: 15px
+          padding-bottom: 15px
+      @media screen and (max-width: $tablet)
+        display: none
 
   //animation card
   .animation-card-wrap
     float: left
     width: 33.33%
     padding-right: 30px
-    height: 450px
+    @media screen and (max-width: $tablet)
+      width: 50%
+    @media screen and (max-width: 600px)
+      width: 100%
+      padding-right: 0
 
     .animation-card-img
+      position: relative
       width: 100%
       height: 200px
-      img
-        width: 100%
-        height: 100%
-        object-fit: cover
+      @media screen and (max-width: 1400px)
+        height: 150px
+      @media screen and (max-width: $tablet)
+        height: 250px
+      @media screen and (max-width: $tablet-sm)
+        height: 200px
+      @media screen and (max-width: 600px)
+        height: 250px
     .animation-card-title
       margin-top: 20px
       font-size: 1.3rem
       line-height: 1.4em
     .animation-card-desc
       margin-top: 10px
+      font-size: 0.9rem
+      line-height: 1.5rem
+      @media screen and (max-width: 1300px)
+        display: none
+      @media screen and (max-width: $tablet)
+        display: block
+        font-size: 1.2rem
+        line-height: 1.8rem
+      @media screen and (max-width: 700px)
+        display: none
+      @media screen and (max-width: 600px)
+        display: block
 
+  .animation-card-wrap.things
+    height: 420px
+    @media screen and (max-width: 1300px)
+      height: 300px
+    @media screen and (max-width: $tablet)
+      height: 500px
+    @media screen and (max-width: 700px)
+      height: 330px
+    @media screen and (max-width: 600px)
+      height: auto
+      margin-bottom: 50px
+  .animation-card-wrap.kids
+    height: 350px
+    @media screen and (max-width: 1300px)
+      height: 280px
+    @media screen and (max-width: $tablet)
+      height: 400px
+    @media screen and (max-width: 700px)
+      height: 330px
+    @media screen and (max-width: 600px)
+      height: auto
+      margin-bottom: 50px
 

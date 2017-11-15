@@ -1,0 +1,24 @@
+{% extends "layout/layout.html" %}
+{% block content %}
+    <div class="draw-container">
+        {% for chara in drawings %}
+            <div class="chara-wrap">
+                <a
+                    data-fancybox="drawings"
+                    data-caption='<span class="draw-date">{{ chara['date'] }}</span><br><span class="draw-title">{{ chara['title'] }}</span><br><span class="draw-desc">{{ chara['description'] | raw}}</span>'
+                    href="/img/{{ chara['image'] }}"
+                    class="char-img"
+                    data-width="600"
+                    data-height="600"
+                    data-date="{{ chara['date'] }}"
+                    data-title="{{ chara['title'] }}"
+                    data-desc="Singing Gnom{{ chara['description'] }}"
+                >
+                    <img src="img/{{ chara['image'] }}" alt="Ken priebe {{ chara['title'] }} drawings">
+                </a>
+                <p class="chara-caption">{{ chara['title'] }}</p>
+            </div>
+        {% endfor %}
+
+    </div>
+{% endblock %}

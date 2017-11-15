@@ -1,0 +1,97 @@
+{% extends "layout/layout.html" %}
+{% block content %}
+<div class="scroll-btn-container">
+    <div class="scroll-btn-wrap up" id="scrollUp">
+        <img src="img/up.svg" alt="ken priebe previous book">
+    </div>
+    <div class="scroll-btn-wrap down" id="scrollDown">
+        <img src="img/down.svg" alt="ken priebe next book">
+    </div>
+</div>
+<div class="chara-fixed chara-left animation">
+    <img src="img/BottomLeft_Animation.jpg" alt="Ken priebe character">
+</div>
+<div class="chara-fixed chara-right animation">
+    <img src="img/TopRight_Animation.jpg" alt="Ken priebe character">
+</div>
+<div id="fullpageAnim">
+    <!-- #########################
+              Demo Reel
+    ###########################-->
+    <div class="section">
+        <h5 class="for-mobile anim-head">
+            Demo Reel
+        </h5>
+        <div class="animation-container">
+            {% for demo in demoreel %}
+                <a data-fancybox href="{{ demo['video_url'] }}" class="demoreel-box">
+                    <div class="play-icon-wrap">
+                        <img src="/img/play-icon.svg" alt="ken animation">
+                    </div>
+                    <img src="/img/{{ demo['poster'] }}" alt="ken priebe demoreel" class="anim-poster">
+                </a>
+                <div class="demoreel-text">
+                    <div class="demoreel-text-inner-wrap">
+                        <div class="demoreel-title">{{ demo['title'] }}</div>
+                        <div class="demoreel-desc">{{ demo['description'] | raw }}</div>
+                    </div>
+                    <div class="btn-f">
+                        <a href="#things">View other videos</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- #########################
+         Shorts and thigns
+    ###########################-->
+    <div class="section">
+        <h5 class="for-mobile anim-head">
+            Shorts & Things
+        </h5>
+        <div class="animation-container">
+            {% for thing in things %}
+                <div class="animation-card-wrap things">
+                    <div class="animation-card-img">
+                        <a data-fancybox href="{{ thing['video_url'] }}">
+                            <div class="play-icon-wrap">
+                                <img src="/img/play-icon.svg" alt="ken animation">
+                            </div>
+                            <img src="img/{{ thing['poster'] }}" alt="ken priebe animation {{ thing['title'] }}" class="anim-poster">
+                        </a>
+                    </div>
+                    <div class="animation-card-title">{{ thing['title'] }}</div>
+                    <div class="animation-card-desc">{{ thing['description'] | raw }}</div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- #########################
+             kids animation
+    ###########################-->
+    <div class="section">
+        <h5 class="for-mobile anim-head">
+            Kids Animation
+        </h5>
+        <div class="animation-container">
+            {% for kid in kids %}
+                <div class="animation-card-wrap kids">
+                    <div class="animation-card-img">
+                        <a data-fancybox href="{{ kid['video_url'] }}">
+                            <div class="play-icon-wrap">
+                                <img src="/img/play-icon.svg" alt="ken animation">
+                            </div>
+                            <img src="img/{{ kid['poster'] }}" alt="ken priebe animation {{ kid['title'] }}" class="anim-poster">
+                        </a>
+                    </div>
+                    <div class="animation-card-title">{{ kid['title'] }}</div>
+                    <div class="animation-card-desc">{{ kid['description'] | raw }}</div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

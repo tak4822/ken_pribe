@@ -2,11 +2,11 @@
 
 namespace src\Controllers;
 
-use src\Template\FrontendRenderer;
+use src\Template\BackendRenderer;
 use Http\Request;
 use Http\Response;
-include __DIR__ . '/../../src/helper/SQL.php';
-class About
+
+class Login
 {
     private $request;
     private $response;
@@ -15,7 +15,7 @@ class About
     public function __construct(
         Request $request,
         Response $response,
-        FrontendRenderer $renderer
+        BackendRenderer $renderer
     ) {
         $this->request = $request;
         $this->response = $response;
@@ -24,10 +24,9 @@ class About
     public function show()
     {
         $data = [
-            'page' => 'about',
-            'about' => DBSelectAll('about_tb')
+
         ];
-        $html = $this->renderer->render('About', $data);
+        $html = $this->renderer->render('Login', $data);
         $this->response->setContent($html);
 
     }
