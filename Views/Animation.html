@@ -76,7 +76,7 @@
         <div class="animation-container">
             {% for kid in kids %}
                 <div class="animation-card-wrap kids">
-                    <div class="animation-card-img">
+                    <div class="animation-card-img kids">
                         <a data-fancybox href="{{ kid['video_url'] }}">
                             <div class="play-icon-wrap">
                                 <img src="/img/play-icon.svg" alt="ken animation">
@@ -84,7 +84,7 @@
                             <img src="img/{{ kid['poster'] }}" alt="ken priebe animation {{ kid['title'] }}" class="anim-poster">
                         </a>
                     </div>
-                    <div class="animation-card-title">{{ kid['title'] }}</div>
+                    <div class="animation-card-title kids">{{ kid['title'] }}</div>
                     <div class="animation-card-desc">{{ kid['description'] | raw }}</div>
                 </div>
             {% endfor %}

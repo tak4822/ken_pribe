@@ -130,14 +130,38 @@
       height: auto
       margin-bottom: 50px
   .animation-card-wrap.kids
-    height: 350px
-    @media screen and (max-width: 1300px)
-      height: 280px
+    height: 300px
+    width: 25%
+    padding-right: 25px
+    @media screen and (max-width: 1500px)
+      height: 250px
     @media screen and (max-width: $tablet)
+      width: 50%
       height: 400px
     @media screen and (max-width: 700px)
       height: 330px
     @media screen and (max-width: 600px)
       height: auto
       margin-bottom: 50px
+      width: 100%
+      padding-right: 0
+
+    .animation-card-img.kids
+      position: relative
+      width: 100%
+      height: 200px
+      @media screen and (max-width: 1500px)
+        height: 130px
+      @media screen and (max-width: $tablet)
+        height: 250px
+      @media screen and (max-width: $tablet-sm)
+        height: 200px
+      @media screen and (max-width: 600px)
+        height: 250px
+    .animation-card-title.kids
+      margin-top: 15px
+      font-size: 1rem
+      line-height: 1.4em
+      @media screen and (max-width: $tablet)
+        font-size: 1.3rem
 
