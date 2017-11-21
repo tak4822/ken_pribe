@@ -1,8 +1,14 @@
 .chara-wrap
+  opacity: 0
+  transition: all 0.45s ease
   width: 25%
   float: left
   padding-right: 30px
   margin-bottom: 20px
+  &:hover
+    animation-name: rubberBand
+    animation-duration: 0.7s
+
   @media screen and (max-width: 800px)
     width: 33.33%
   @media screen and (max-width: $tablet-sm)
@@ -14,6 +20,7 @@
   .char-img
     width: 100%
     height: 100px
+    overflow: hidden
     img
       object-fit: cover
       width: 100%
@@ -51,3 +58,29 @@
   font-family: "Franklin_book"
   width: 500px
   padding-top: 30px
+
+.rubberBand
+  animation-name: rubberBand
+  animation-duration: 1.4s
+
+@keyframes rubberBand
+  from
+    transform: scale3d(1, 1, 1)
+
+  30%
+    transform: scale3d(1.25, 0.75, 1)
+
+  40%
+    transform: scale3d(0.75, 1.25, 1)
+
+  50%
+    transform: scale3d(1.15, 0.85, 1)
+
+  65%
+    transform: scale3d(.95, 1.05, 1)
+
+  75%
+   transform: scale3d(1.05, .95, 1)
+
+  to
+    transform: scale3d(1, 1, 1)

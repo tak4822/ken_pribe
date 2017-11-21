@@ -6,21 +6,8 @@ use src\Template\BackendRenderer;
 use Http\Request;
 use Http\Response;
 include __DIR__ . '/../../src/helper/SQL.php';
-class AdminAnimation
+class AdminAnimation extends CoreController
 {
-    private $request;
-    private $response;
-    private $renderer;
-
-    public function __construct(
-        Request $request,
-        Response $response,
-        BackendRenderer $renderer
-    ) {
-        $this->request = $request;
-        $this->response = $response;
-        $this->renderer = $renderer;
-    }
     public function show()
     {
         $data = [
@@ -31,6 +18,7 @@ class AdminAnimation
         ];
         $html = $this->renderer->render('AdminAnimation', $data);
         $this->response->setContent($html);
+        CoreController::session();
     }
 
     public function showInsert()
@@ -41,6 +29,7 @@ class AdminAnimation
         ];
         $html = $this->renderer->render('InsertAnim', $data);
         $this->response->setContent($html);
+        CoreController::session();
     }
 
     public function store()
@@ -59,6 +48,7 @@ class AdminAnimation
         ];
         $html = $this->renderer->render('AdminAnimation', $data);
         $this->response->setContent($html);
+        CoreController::session();
     }
 
     public function delete()
@@ -81,6 +71,7 @@ class AdminAnimation
         ];
         $html = $this->renderer->render('AdminAnimation', $data);
         $this->response->setContent($html);
+        CoreController::session();
     }
 
     public function showEdit()
@@ -95,6 +86,7 @@ class AdminAnimation
 
         $html = $this->renderer->render('UpdateAnim', $data);
         $this->response->setContent($html);
+        CoreController::session();
 
     }
     public function update(){
@@ -130,5 +122,6 @@ class AdminAnimation
 
         $html = $this->renderer->render('AdminAnimation', $data);
         $this->response->setContent($html);
+        CoreController::session();
     }
 }

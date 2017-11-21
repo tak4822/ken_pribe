@@ -1,12 +1,12 @@
 $(function(){
     //navbar
-    $('.nav-has-sub').hover(function(){
-        $(this).find('.subNav').show("down", "swing", 800);
-    },function(){
-        if(!$(this).hasClass('active')){
-            $(this).find('.subNav').toggle( "up",  "swing", 800);
-        }
-    });
+    // $('.nav-has-sub').hover(function(){
+    //     $(this).find('.subNav').show("down", "swing", 800);
+    // },function(){
+    //     if(!$(this).hasClass('active')){
+    //         $(this).find('.subNav').toggle( "up",  "swing", 800);
+    //     }
+    // });
     //fancy box
     // $().fancybox({
     //     selector : '[data-fancybox="images"]',
@@ -28,6 +28,22 @@ $(function(){
         selector : '[data-fancybox="images"]',
         loop     : true
     });
+
+    //drawings show
+    $('.chara-wrap').each(function(i, el){
+        $(el).css({
+            'opacity':0,
+            'transform': 'translateY(-100px)'
+        });
+        setTimeout(function(){
+            $(el).css({
+                'opacity':1.0,
+                'transform': 'translateY(0px)'
+            });
+        },300 + ( i * 140 ));
+
+    });
+
 });
 
 //news button

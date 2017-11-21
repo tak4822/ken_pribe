@@ -14,12 +14,19 @@
 <div class="container-fluid admin-container">
     <div class="row">
         <div class="list-group col-sm-2 admin-nav">
-            <a href="/admin/user" class="list-group-item list-group-item-action {% if admin == 'user' %}active{% endif %}">Password</a>
             <a href="/admin/books" class="list-group-item list-group-item-action {% if admin == 'books' %}active{% endif %}">Books</a>
             <a href="/admin/drawings" class="list-group-item list-group-item-action {% if admin == 'drawings' %}active{% endif %}">Drawings</a>
             <a href="/admin/animation" class="list-group-item list-group-item-action {% if admin == 'animation' %}active{% endif %}">Animation</a>
             <a href="/admin/about" class="list-group-item list-group-item-action {% if admin == 'about' %}active{% endif %}">About</a>
+            <div class="password-btn">
+                <a href="/admin/user" class="btn btn-outline-secondary">Change Password</a>
+            </div>
+            <div class="logout-btn">
+                <a href="/user/logout" class="btn btn-outline-danger">Log Out</a>
+            </div>
+
         </div>
+
         <div class="admin-main-container col-sm-10">
             {% block content %}
             {% endblock %}

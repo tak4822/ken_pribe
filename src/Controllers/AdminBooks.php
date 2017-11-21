@@ -1,26 +1,14 @@
 <?php declare(strict_types = 1);
 
 namespace src\Controllers;
+
 use src\Template\BackendRenderer;
 use Http\Request;
 use Http\Response;
 include __DIR__ . '/../../src/helper/SQL.php';
-class AdminBooks
+
+class AdminBooks extends CoreController
 {
-    private $request;
-    private $response;
-    private $renderer;
-
-    public function __construct(
-        Request $request,
-        Response $response,
-        BackendRenderer $renderer
-    ) {
-        $this->request = $request;
-        $this->response = $response;
-        $this->renderer = $renderer;
-    }
-
 
     public function show()
     {
@@ -30,6 +18,8 @@ class AdminBooks
         ];
         $html = $this->renderer->render('AdminBooks', $data);
         $this->response->setContent($html);
+        CoreController::session();
+
     }
 
     public function showInsert()
@@ -39,6 +29,7 @@ class AdminBooks
         ];
         $html = $this->renderer->render('InsertBook', $data);
         $this->response->setContent($html);
+        CoreController::session();
     }
 
     public function store()
@@ -58,6 +49,7 @@ class AdminBooks
         ];
         $html = $this->renderer->render('AdminBooks', $data);
         $this->response->setContent($html);
+        CoreController::session();
     }
 
     public function delete()
@@ -77,6 +69,7 @@ class AdminBooks
         ];
         $html = $this->renderer->render('AdminBooks', $data);
         $this->response->setContent($html);
+        CoreController::session();
     }
 
     public function showEdit()
@@ -89,8 +82,9 @@ class AdminBooks
 
         $html = $this->renderer->render('UpdateBook', $data);
         $this->response->setContent($html);
-
+        CoreController::session();
     }
+
     public function update(){
         if($_POST['upload'] !== ''){
             $image = $_POST['upload'];
@@ -121,8 +115,8 @@ class AdminBooks
             'books' => DBSelectAll('books_tb'),
             'message' => $message
         ];
-
         $html = $this->renderer->render('AdminBooks', $data);
         $this->response->setContent($html);
+        CoreController::session();
     }
 }

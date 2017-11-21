@@ -23,11 +23,21 @@ class Login
     }
     public function show()
     {
-        $data = [
+        if ( !isset($_SESSION['userName'] ) ) {
+            $data = [
 
-        ];
-        $html = $this->renderer->render('Login', $data);
-        $this->response->setContent($html);
+            ];
+            $html = $this->renderer->render('Login', $data);
+            $this->response->setContent($html);
+        } else {
+            $data = [
+                'admin' => 'admin',
+                'user' => $_SESSION['userName']
+            ];
+            $html = $this->renderer->render('Admin', $data);
+            $this->response->setContent($html);
+        }
+
 
     }
 }

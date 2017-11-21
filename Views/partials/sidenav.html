@@ -12,9 +12,11 @@
             <li class="nav_li nav-has-sub {% if page == 'books' %}active{% endif %}">
                 <a href="/books" class="nav-text">Books</a>
                 <ul class="subNav" id="bookSubNav">
-                    <li data-menuanchor="Book_1" class="subNav-li"><a class="sub-nav-text" href="#Book_1">Gnomes of the Cheese Forest and Other Poems</a></li>
-                    <li data-menuanchor="Book_2" class="subNav-li"><a class="sub-nav-text" href="#Book_2">The Art of Stop Motion Animation</a></li>
-                    <li data-menuanchor="Book_3" class="subNav-li"><a class="sub-nav-text" href="#Book_3">The ADVANCED Art of Stop Motion Animation</a></li>
+                    {% if page == 'books' %}
+                        {% for keys,book in books %}
+                            <li data-menuanchor="Book_{{ keys }}" class="subNav-li books"><a class="sub-nav-text" href="#Book_{{ keys }}">{{ book['title'] }}</a></li>
+                        {% endfor %}
+                    {% endif %}
                 </ul>
             </li>
             <li class="nav_li {% if page == 'drawings' %}active{% endif %}">

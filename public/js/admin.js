@@ -11,6 +11,18 @@ $(function(){
     //confirm delete
     $('.admin-delete').click(function(){
         return confirm('Are you sure to delete ' + $(this).data('title') + ' ?');
+    });
+
+    //confirm password
+    $('.submit-pass').click(function(e){
+        console.log('hello');
+
+        if ($('#newPass').val() !== $('#conNewPass').val()) {
+            $('.admin-message').html('<div class="alert alert-danger" role="alert">Confirmation of password is invalid</div>');
+            return false;
+        } else {
+
+        }
     })
 });
 

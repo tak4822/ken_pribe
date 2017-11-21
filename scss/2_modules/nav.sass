@@ -36,6 +36,7 @@
   .social-nav
     text-align: center
     .social-ul
+      z-index: 100
       @media screen and (max-width: $tablet)
         display: inline-flex
         position: static
@@ -65,12 +66,12 @@
 
   .nav_li
     list-style-type: none
-    margin-bottom: 10px
-    transition: all 0.8s ease
+    padding-top: 5px
+    margin-bottom: 5px
+    transition: all 0.6s ease
     &:hover
       padding-left: 20px
       border-left: 5px solid $primary
-      margin-bottom: 20px
       @media screen and (max-width: $tablet)
         border-left: 0
         padding-left: 0
@@ -94,7 +95,6 @@
     list-style-type: none
     padding: 0
     padding-top: 10px
-
 
   .subNav-li
     font-size: 0.9rem
@@ -141,6 +141,7 @@
   left: 24vw
   list-style: none
   @include clearFix()
+  z-index: 100
   @media screen and (max-width: 1500px)
     left: 21vw
   .social-li

@@ -103,16 +103,18 @@ a
   @media screen and (max-width: $tablet)
     display: none
   .scroll-btn-wrap
-    transition: all 0.3s ease
     width: 100%
     img
       width: 100%
+      transition: all 0.5s ease
   .scroll-btn-wrap.up
     &:hover
-      transform: translateY(-10px)
+      img
+       transform: translateY(-15px)
   .scroll-btn-wrap.down
     &:hover
-      transform: translateY(10px)
+      img
+       transform: translateY(15px)
 
 
 .for-desk
@@ -122,3 +124,8 @@ a
   display: none
   @media screen and (max-width: $tablet)
     display: block
+
+.scroll-btn-anim
+  animation-duration: 1.8s
+  animation-name: iniAnimation
+  transform-origin: center bottom

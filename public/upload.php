@@ -27,5 +27,5 @@ if($_FILES['upload']['error'] === 0) {
 }
 else
 {
-    echo "<div class='alert alert-warning' role='alert'>File failed to upload because of " . $_FILES['upload']['error'] . "!Failed</div>";
+    echo "<div class='alert alert-warning' role='alert'>File failed to upload because of " . $_FILES['upload']['error'] . "</div>";
 }

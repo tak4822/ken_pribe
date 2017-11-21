@@ -34,6 +34,11 @@ return [
     //about
     ['GET', '/about/edit', ['src\Controllers\AdminAbout', 'showEdit']],
     ['POST', '/about/update', ['src\Controllers\AdminAbout', 'update']],
+    //password
+    ['POST', '/user/update', ['src\Controllers\AdminUser', 'update']],
+    //login
+    ['POST', '/user/login', ['src\Controllers\AdminUser', 'login']],
+    ['GET', '/user/logout', ['src\Controllers\AdminUser', 'logout']],
 
 
 ];

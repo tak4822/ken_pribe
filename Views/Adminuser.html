@@ -1,4 +1,28 @@
 {% extends "layout/layout_admin.html" %}
 {% block content %}
-<h1>user</h1>
+<div class="admin-head-wrap">
+    <p class="display-3">Change Password</p>
+    <span class="admin-message">{{ message | raw }}</span>
+</div>
+
+<form action="/user/update" method="POST" class="password-form">
+    <div class="form-group">
+        <label for="userName">User Name</label>
+        <input type="text" class="form-control" id="userName" name="userName" placeholder="Enter user name" required>
+    </div>
+    <div class="form-group">
+        <label for="cuPass">Current Password</label>
+        <input type="password" class="form-control" id="cuPass" name="cuPass" placeholder="Enter current password" required>
+    </div>
+    <div class="form-group new-pass">
+        <label for="newPass">New Password</label>
+        <input type="password" class="form-control" id="newPass" name="newPass" placeholder="Enter new Password" required>
+    </div>
+    <div class="form-group">
+        <label for="conNewPass">Confirm New Password</label>
+        <input type="password" class="form-control" id="conNewPass" name="conNewPass" placeholder="Confirm the new password" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary submit-pass">Submit</button>
+</form>
 {% endblock %}

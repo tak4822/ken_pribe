@@ -6,21 +6,8 @@ use src\Template\BackendRenderer;
 use Http\Request;
 use Http\Response;
 include __DIR__ . '/../../src/helper/SQL.php';
-class AdminDrawings
+class AdminDrawings extends CoreController
 {
-    private $request;
-    private $response;
-    private $renderer;
-
-    public function __construct(
-        Request $request,
-        Response $response,
-        BackendRenderer $renderer
-    ) {
-        $this->request = $request;
-        $this->response = $response;
-        $this->renderer = $renderer;
-    }
     public function show()
     {
         $data = [
@@ -29,6 +16,7 @@ class AdminDrawings
         ];
         $html = $this->renderer->render('AdminDrawings', $data);
         $this->response->setContent($html);
+        CoreController::session();
     }
 
     public function showInsert()
@@ -38,23 +26,36 @@ class AdminDrawings
         ];
         $html = $this->renderer->render('InsertDrawings', $data);
         $this->response->setContent($html);
+        CoreController::session();
     }
 
     public function store()
     {
-        DBInsert('drawings_tb', [
-            'image' => $_POST['upload'],
-            'title' => $_POST['title'],
-            'date' => $_POST['date'],
-            'description' => $_POST['description'],
-        ]);
-        $data = [
-            'admin' => 'drawings',
-            'drawings' => DBSelectAll('drawings_tb')
+        $message ="";
+        if (
+            DBInsert('drawings_tb', [
+                'image' => $_POST['upload'],
+                'title' => $_POST['title'],
+                'date' => $_POST['date'],
+                'description' => $_POST['description']
+            ])
+        ) {
+            $data = [
+                'admin' => 'drawings',
+                'drawings' => DBSelectAll('drawings_tb')
+            ];
 
-        ];
+        } else {
+            $data = [
+                'admin' => 'drawings',
+                'message' => '<div class="alert alert-danger" role="alert">Failed to create a new drawings</div>'
+            ];
+        }
         $html = $this->renderer->render('AdminDrawings', $data);
         $this->response->setContent($html);
+        CoreController::session();
+
+
     }
 
     public function delete()
@@ -74,6 +75,7 @@ class AdminDrawings
         ];
         $html = $this->renderer->render('AdminDrawings', $data);
         $this->response->setContent($html);
+        CoreController::session();
     }
 
     public function showEdit()
@@ -86,6 +88,7 @@ class AdminDrawings
 
         $html = $this->renderer->render('Updatedrawings', $data);
         $this->response->setContent($html);
+        CoreController::session();
 
     }
     public function update(){
@@ -118,6 +121,7 @@ class AdminDrawings
 
         $html = $this->renderer->render('AdminDrawings', $data);
         $this->response->setContent($html);
+        CoreController::session();
     }
 
 }
