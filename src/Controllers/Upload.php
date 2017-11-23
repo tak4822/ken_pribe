@@ -34,11 +34,6 @@ class Upload
                 $upload_passed = false;
             }
 
-            // Check to see if it exists of not
-            //    if (file_exists($target_file_and_dir)) {
-            //        $upload_passed = false;
-            //    }
-
             if ($upload_passed === true) {
                 // Upload image to the folder
                 if(move_uploaded_file($_FILES["upload"]["tmp_name"], $target_file_and_dir)){

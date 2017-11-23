@@ -1326,7 +1326,7 @@ td.admin-tb-edit {
   margin-left: 20px; }
 
 .password-btn {
-  margin-top: 80px; }
+  margin-top: 50px; }
 
 .logout-btn {
   margin-top: 20px; }
@@ -1340,6 +1340,9 @@ td.admin-tb-edit {
 .login-container {
   width: 500px;
   margin: 50px auto; }
+
+.change-title-btn {
+  margin-top: 20px; }
 
 .admin-animation-head {
   font-size: 2.5rem; }

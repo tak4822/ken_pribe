@@ -13,6 +13,7 @@ return [
     ['GET', '/admin/animation', ['src\Controllers\AdminAnimation', 'show']],
     ['GET', '/admin/about', ['src\Controllers\AdminAbout', 'show']],
     ['GET', '/admin/user', ['src\Controllers\AdminUser', 'show']],
+    ['GET', '/admin/home', ['src\Controllers\AdminHome', 'show']],
     //books
     ['GET', '/book/insert', ['src\Controllers\AdminBooks', 'showInsert']],
     ['POST', '/book/insert', ['src\Controllers\AdminBooks', 'store']],
@@ -39,6 +40,12 @@ return [
     //login
     ['POST', '/user/login', ['src\Controllers\AdminUser', 'login']],
     ['GET', '/user/logout', ['src\Controllers\AdminUser', 'logout']],
+    //home
+    ['GET', '/home/edit', ['src\Controllers\AdminHome', 'showEdit']],
+    ['POST', '/home/update', ['src\Controllers\AdminHome', 'update']],
+
+    ['GET', '/admin/title', ['src\Controllers\Admin', 'showTitleEdit']],
+    ['POST', '/admin/title', ['src\Controllers\Admin', 'updateTitleEdit']],
 
 
 ];

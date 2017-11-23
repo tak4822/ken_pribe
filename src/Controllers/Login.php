@@ -6,21 +6,8 @@ use src\Template\BackendRenderer;
 use Http\Request;
 use Http\Response;
 
-class Login
+class Login extends CoreController
 {
-    private $request;
-    private $response;
-    private $renderer;
-
-    public function __construct(
-        Request $request,
-        Response $response,
-        BackendRenderer $renderer
-    ) {
-        $this->request = $request;
-        $this->response = $response;
-        $this->renderer = $renderer;
-    }
     public function show()
     {
         if ( !isset($_SESSION['userName'] ) ) {

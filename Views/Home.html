@@ -7,9 +7,9 @@
         <img src="img/birdcreature.svg" alt="Ken priebe character">
     </div>
     <div class="home-video-container">
-        <video id="homeVideo" class="home-video" height="100%" poster="img/gnome.jpg" autoPlay loop>
-            <source src="video/HomePageLoop2.mp4" type="video/mp4">
-            Youtr browser dose not support the video tag
+        <video id="homeVideo" class="home-video" poster="img/Gnome.jpg" playsinline autoPlay loop muted>
+            <source src="video/{{ home['video'] }}" type="video/mp4">
+            Your browser dose not support the video tag
         </video>
         <div class="greeting-container">
             <div class="svg-wrap">
@@ -27,10 +27,10 @@
         </div>
     </div>
     <div class="greeting-contents">
-        <p class="welcome">Welcome...</p>
-        <p class="welcome-words">but tread lightly, for here be a door to words, scribbles and the animated image.
+        <p class="welcome">{{ home['greeting_head'] }}</p>
+        <p class="welcome-words">{{ home['greeting_sub_head'] }}
         </p>
-        <h1 class="welcome-intro">Ken Priebe is an author, illustrator and animator from under the Michigan troll bridge, now living in the Goon Docks near Vancouver, Canada. Enjoy your stay, and wipe your feet before you leave. </h1>
+        <h1 class="welcome-intro">{{ home['greeting_text'] }}</h1>
         <div class="btn-f">
             <a href="/about">Learn More</a>
         </div>

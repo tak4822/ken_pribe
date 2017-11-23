@@ -1,0 +1,60 @@
+{% extends "layout/layout_admin.html" %}
+{% block content %}
+<p class="display-3">Edit Home</p>
+
+<form action="/home/update" method="POST">
+
+    <!--head line -->
+    <div class="form-group">
+        <label for="homeGHead">Greeting Headline</label>
+        <input type="text" id="homeGHead" class="form-control" name="head" value="{{ home['greeting_head'] }}" placeholder="Enter greeting first words" required>
+    </div>
+
+    <!-- Sub head line -->
+    <div class="form-group">
+        <label for="subHead">Greeting Sub Headline</label>
+        <input type="text" id="subHead" class="form-control" name="sub" value="{{ home['greeting_sub_head'] }}" placeholder="Enter greeting middle sentence" required>
+    </div>
+
+    <!--head line -->
+    <div class="form-group">
+        <label for="Gtext">Greeting Text</label>
+        <input type="text" id="GText" class="form-control" name="text" value="{{ home['greeting_text'] }}" placeholder="Enter greeting text" required>
+    </div>
+
+    <input type="hidden" name="preImage" value="{{ home['video'] }}" style="display: none">
+
+    <small class="muted">Make sure your file size is under 8MB.</small>
+    <div class="upload-section">
+        <button type="button" class="btn btn-lg btn-outline-dark upload-front-btn" data-toggle="modal" data-target="#file">Upload Home Video</button>
+        <div class="upload-alert"></div>
+    </div>
+
+    <div id="file" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">Upload Video</div>
+                    <button type="button" id="close" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar"></div>
+                        </div>
+
+                        <button class="btn btn-lg btn-primary upload-btn" type="button">Upload File</button>
+                        <input type="file" class="form-control" name="upload" id="upload-input" style="display:none">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+
+    <button type="submit" name="anim-insert-submit" class="btn btn-lg btn-primary submit-btn">Submit</button>
+</form>
+{% endblock %}

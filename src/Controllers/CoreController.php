@@ -4,6 +4,7 @@ namespace src\Controllers;
 use src\Template\BackendRenderer;
 use Http\Request;
 use Http\Response;
+include __DIR__ . '/../../src/helper/SQL.php';
 class CoreController
 {
     public function __construct
@@ -16,6 +17,7 @@ class CoreController
         $this->request = $request;
         $this->response = $response;
         $this->renderer = $renderer;
+        $this->title = DBSelectAll('common_tb')[0]['title'];
     }
 
     public function session(){

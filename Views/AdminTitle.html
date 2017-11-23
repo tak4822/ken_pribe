@@ -1,0 +1,17 @@
+{% extends "layout/layout_admin.html" %}
+{% block content %}
+<div class="admin-head-wrap">
+    <p class="display-3">Edit Site Title</p>
+    <span class="admin-message">{{ message|raw }}</span>
+</div>
+<form action="/admin/title" method="POST">
+
+    <!--title -->
+    <div class="form-group">
+        <label for="siteTitle">Site Title</label>
+        <input type="text" id="siteTitle" class="form-control" name="title" value="{{ common['title'] }}" placeholder="Enter site title" required>
+    </div>
+
+    <button type="submit" name="anim-insert-submit" class="btn btn-lg btn-primary submit-btn">Submit</button>
+</form>
+{% endblock %}

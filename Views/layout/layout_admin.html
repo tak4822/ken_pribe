@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Ken Priebe portfolio</title>
+    <title>Ken Admin</title>
+    <link rel="shortcut icon" href="img/ken_favicon.ico" type="image/x-icon">
     <!--normalize css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -14,13 +15,18 @@
 <div class="container-fluid admin-container">
     <div class="row">
         <div class="list-group col-sm-2 admin-nav">
+            <a href="/admin/home" class="list-group-item list-group-item-action {% if admin == 'home' %}active{% endif %}">Home</a>
             <a href="/admin/books" class="list-group-item list-group-item-action {% if admin == 'books' %}active{% endif %}">Books</a>
             <a href="/admin/drawings" class="list-group-item list-group-item-action {% if admin == 'drawings' %}active{% endif %}">Drawings</a>
             <a href="/admin/animation" class="list-group-item list-group-item-action {% if admin == 'animation' %}active{% endif %}">Animation</a>
             <a href="/admin/about" class="list-group-item list-group-item-action {% if admin == 'about' %}active{% endif %}">About</a>
+
+            <a href="/admin/title" class="btn btn-outline-secondary change-title-btn">Change Title</a>
             <div class="password-btn">
                 <a href="/admin/user" class="btn btn-outline-secondary">Change Password</a>
             </div>
+
+
             <div class="logout-btn">
                 <a href="/user/logout" class="btn btn-outline-danger">Log Out</a>
             </div>
@@ -41,11 +47,16 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 <script src="/js/admin.js"></script>
 
+
 {% if admin == "edit" %}
 <script>
     editorFunc();
 </script>
 {% endif %}
-
+{% if admin == "homeUpdate" %}
+<script>
+    uploadFunc('video');
+</script>
+{% endif %}
 </body>
 </html>

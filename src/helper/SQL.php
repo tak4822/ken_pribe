@@ -1,6 +1,6 @@
 <?php
-
 define('CONFIG_PATH', __DIR__ .'/../../config/config.ini');
+//define('CONFIG_PATH', __DIR__ .'/../../../../con/config_ken.ini');
 
 function DBInsert ($table, $data) {
     $connect = DBConnect ();

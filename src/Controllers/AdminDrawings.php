@@ -5,7 +5,7 @@ namespace src\Controllers;
 use src\Template\BackendRenderer;
 use Http\Request;
 use Http\Response;
-include __DIR__ . '/../../src/helper/SQL.php';
+
 class AdminDrawings extends CoreController
 {
     public function show()

@@ -47,7 +47,6 @@ function editorFunc(){
     });
 
     $('.editableContent').keydown(function(e) {
-        console.log("hey");
         if (e.keyCode === 13) {
             document.execCommand('insertHTML', false, '<br><br>');
             return false;
@@ -61,6 +60,7 @@ function editorFunc(){
             document.execCommand('createlink', false, url);
             const linkText = window.getSelection().focusNode.parentNode;
             $(linkText).addClass("about-link");
+            $(linkText).attr('target','_blank');
         } else {
             return false;
         }
@@ -86,7 +86,10 @@ function editorFunc(){
             newsInput.value = news;
         });
     }
+    uploadFunc('image')
+}
 
+function uploadFunc(fileType) {
     //image upload
     $('.upload-btn').on('click', function(){
         $('#upload-input').click();
@@ -100,8 +103,14 @@ function editorFunc(){
 
         const formData = new FormData();
         formData.append('upload', uploadInput[0].files[0]);
+        let file;
+        if(fileType === 'image'){
+            file = '/upload.php';
+        } else if ( fileType === 'video' ){
+            file = '/uploadVideo.php';
+        }
         $.ajax({
-            url: '/upload.php',
+            url: file,
             type: 'POST',
             data: formData,
             processData: false, // important
@@ -137,5 +146,4 @@ function editorFunc(){
         })
 
     });
-
 }

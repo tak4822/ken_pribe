@@ -6,7 +6,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 error_reporting(E_ALL);
 
-$environment = 'development';
+$environment = 'production';
 
 /**
  * Register the error handler
@@ -16,7 +16,7 @@ if ($environment !== 'production') {
     $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 } else {
     $whoops->pushHandler(function($e){
-        echo 'Todo: Friendly error page and send an email to the developer';
+        echo 'Something wrong... Please go back to the site from <a href="/" >here</a>';
     });
 }
 $whoops->register();

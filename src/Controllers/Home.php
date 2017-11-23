@@ -6,25 +6,14 @@ use src\Template\FrontendRenderer;
 use Http\Request;
 use Http\Response;
 
-class Home
+class Home extends CoreController
 {
-    private $request;
-    private $response;
-    private $renderer;
-
-    public function __construct(
-        Request $request,
-        Response $response,
-        FrontendRenderer $renderer
-    ) {
-        $this->request = $request;
-        $this->response = $response;
-        $this->renderer = $renderer;
-    }
     public function show()
     {
         $data = [
-            'page' => 'home'
+            'title' => $this -> title,
+            'page' => 'home',
+            'home' => DBSelectAll ('home_tb')[0]
         ];
         $html = $this->renderer->render('Home', $data);
         $this->response->setContent($html);

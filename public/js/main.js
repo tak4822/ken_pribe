@@ -31,5 +31,5 @@ function emailFilter(){
     const g = "gmail";
     const dot = ".";
     const c = "com";
-    document.getElementsById("emailText").href = "mail" + "to:" + f + arr + g + dot + c;
+    document.getElementById("emailText").href = "mail" + "to:" + f + arr + g + dot + c;
 }
