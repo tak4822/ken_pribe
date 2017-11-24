@@ -741,12 +741,27 @@ a {
   width: 25%;
   float: left;
   padding-right: 30px;
-  margin-bottom: 20px; }
+  height: 270px; }
   .chara-wrap:hover {
     -webkit-animation-name: rubberBand;
             animation-name: rubberBand;
     -webkit-animation-duration: 0.7s;
             animation-duration: 0.7s; }
+  @media screen and (max-width: 1200px) {
+    .chara-wrap {
+      height: 250px; } }
+  @media screen and (max-width: 800px) {
+    .chara-wrap {
+      height: 270px; } }
+  @media screen and (max-width: 768px) {
+    .chara-wrap {
+      height: 400px; } }
+  @media screen and (max-width: 600px) {
+    .chara-wrap {
+      height: 400px; } }
+  @media screen and (max-width: 500px) {
+    .chara-wrap {
+      height: auto; } }
   @media screen and (max-width: 800px) {
     .chara-wrap {
       width: 33.33%; } }
